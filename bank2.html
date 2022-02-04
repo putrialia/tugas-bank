@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bank 2</title>
+</head>
+<header style="background-color:rgb(248, 172, 101); padding: 20px; color: rgb(0, 0, 0);">
+    <div class="wrapper">
+      <div class="sidebar-header">
+        <h1> B A N K</h1>
+    </div>
+</header>
+<body><center>
+
+   <br><br>
+    <h5>SETOR TUNAI</h5>
+    <input type="text"id="masuk" placeholder="masukan setor tunai"class="form-control">
+    <P id="setor"></P>
+    <h5>TARIK TUNAI</h5>
+    <input type="text" id="tarik" placeholder="masukan tarik tunai" class="form-control">
+    <p id="hasil"></p>
+    <h5>NABUNG</h5>
+    <input type="text" id="nabung" placeholder="masukan jumlah nabung" class="form-control">
+    <p id="bung"></p>
+    
+    <button onclick="submit()"> PROSES </button>
+    
+    <script>
+        function submit(){
+            var masuk = document.getElementById("masuk").value;
+            var setor = document.getElementById("setor").value;
+            var tarik = document.getElementById("tarik").value;
+            var nabung = document.getElementById("nabung").value;
+         
+
+            if(masuk < 50000){
+                alert ("akses gagal")
+                return false;
+            }
+            var ngendap = 50000;
+            var jumlah = Number(ngendap) + Number(masuk);
+            document.getElementById("setor").innerHTML = "Rp." + jumlah
+        
+            if(tarik){
+                var hasil = jumlah - tarik ;
+                document.getElementById("hasil").innerHTML = "Rp."+hasil;
+            }
+            if(nabung){
+                var nab =Number(hasil)+ Number (nabung);
+                document.getElementById("bung").innerHTML="Rp."+ nab;
+            }
+            if (hasil<= 50000){
+                document.write("HMMM")
+                document.write("<td> akses gagal </td>")
+                document.write("</table>")
+                document.write("<br>")
+                document.write('<a href = "bank2.html' + document.referrer + '"><button>logout</button>')
+
+            }
+        }
+    </script>
+    </center>
+    <style>
+      body{
+      background-image: url("kassandra\ dekoning.png") ;
+     }
+    a{
+    text-decoration: none;
+    color: black;
+    }
+    
+    </style>
+</body>
+</html>
